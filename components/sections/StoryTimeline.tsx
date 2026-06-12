@@ -55,11 +55,6 @@ export default function StoryTimeline() {
     let targetX = 0;
     let raf: number;
 
-    const spacer = document.createElement("div");
-    spacer.style.height = (window.innerWidth * SCROLL_MULTIPLIER) + "px";
-    spacer.style.pointerEvents = "none";
-    section.appendChild(spacer);
-
     const update = () => {
       const sectionTop = section.getBoundingClientRect().top + window.scrollY;
       const scrollIn = window.scrollY - sectionTop;
@@ -91,7 +86,6 @@ export default function StoryTimeline() {
     return () => {
       window.removeEventListener("scroll", update);
       cancelAnimationFrame(raf);
-      if (section.contains(spacer)) section.removeChild(spacer);
     };
   }, []);
 
@@ -103,10 +97,10 @@ export default function StoryTimeline() {
         position: "relative",
         zIndex: 10,
         background: "var(--dark-3)",
-        overflow: "hidden",
       }}
       aria-label="Wedding story timeline"
     >
+      <div style={{ height: "calc(100vh + 300vw)", position: "relative" }}>
       {/* Sticky container */}
       <div
         style={{

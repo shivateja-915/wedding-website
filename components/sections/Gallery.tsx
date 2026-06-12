@@ -41,16 +41,6 @@ export default function Gallery() {
     let raf: number;
     const EXTRA_SCROLL = 1400;
 
-    // Add extra scroll height
-    let spacer = section.querySelector(".gallery-spacer") as HTMLDivElement | null;
-    if (!spacer) {
-      spacer = document.createElement("div");
-      spacer.className = "gallery-spacer";
-      spacer.style.height = EXTRA_SCROLL + "px";
-      spacer.style.pointerEvents = "none";
-      section.appendChild(spacer);
-    }
-
     const updateScroll = () => {
       const sectionTop = section.getBoundingClientRect().top + window.scrollY;
       const scrollInSection = window.scrollY - sectionTop;
@@ -104,10 +94,11 @@ export default function Gallery() {
         background: "var(--dark-2)",
         padding: "7rem 0 0",
         minHeight: "100vh",
-        overflow: "hidden",
       }}
       aria-label="Portfolio gallery"
     >
+      <div style={{ height: "calc(100vh + 1400px)", position: "relative" }}>
+        <div style={{ position: "sticky", top: 0, paddingTop: "7rem", height: "100vh", overflow: "hidden" }}>
       {/* Section Header */}
       <div ref={headerRef} style={{ textAlign: "center", marginBottom: "3rem", padding: "0 4rem" }}>
         <div className="section-label">Portfolio</div>
@@ -332,6 +323,8 @@ export default function Gallery() {
         .gallery-card:hover .gallery-overlay { opacity: 1 !important; }
         .gallery-card:hover img { transform: scale(1.06); }
       `}</style>
+        </div>
+      </div>
     </section>
   );
 }
