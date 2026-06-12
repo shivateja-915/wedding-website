@@ -333,6 +333,7 @@ export default function StoryTimeline() {
           <div style={{ width: "1px", height: "30px", background: "rgba(201,168,76,0.3)" }} />
         </div>
       </div>
+      </div>
     </section>
   );
 }
