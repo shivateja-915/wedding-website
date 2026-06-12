@@ -435,4 +435,50 @@ body {
   .cursor, .cursor-glow {
     display: none;
   }
+  
+  /* Global section padding overrides */
+  section, footer {
+    padding: 4rem 1.5rem !important;
+  }
+  
+  #hero {
+    padding: 0 !important;
+  }
+  
+  /* Gallery filters */
+  #gallery [style*="padding: 0 4rem"],
+  #gallery [style*="padding: 0px 4rem"] {
+    padding: 0 1.5rem !important;
+  }
+
+  /* Gallery track wrapper */
+  #gallery [style*="paddingLeft: 4rem"],
+  #gallery [style*="padding-left: 4rem"] {
+    padding-left: 1.5rem !important;
+  }
+
+  /* Gallery cards */
+  .gallery-card {
+    flex: 0 0 85vw !important;
+    height: 60vh !important;
+  }
+
+  /* Story Timeline track */
+  #timeline [style*="padding: 0 8rem"],
+  #timeline [style*="padding: 0px 8rem"] {
+    padding: 0 1.5rem !important;
+  }
+
+  /* Story Timeline cards */
+  #timeline [style*="flex: 0 0 420px"] {
+    flex: 0 0 85vw !important;
+  }
+  
+  /* Typography adjustments for mobile */
+  .section-title {
+    font-size: 2.2rem !important;
+  }
+  p {
+    font-size: 1rem !important;
+  }
 }
